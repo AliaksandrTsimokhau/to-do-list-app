@@ -5,19 +5,36 @@ import FilterForm from '../FilterForm/FilterForm';
 import TaskTable from '../TaskTable/TaskTable';
 import PropTypes from 'prop-types';
 
-var Tasks = [
-  {complited: true, title: 'Create ToDo app', priority: 'Normal', date: '2018-01-01'},
-  {complited: false, title: 'Make a plan', priority: 'Low', date: '2018-01-10'},
-  {complited: false, title: 'Always commit changes', priority: 'Normal', date: '2018-01-21'},
-];
+import {getTasks, addTask, removeTask} from '../utils/apiWrapper';
 
 class ToDoListWrapper extends Component{
+  state = {
+    tasks:[]
+  }
+
+  componentWillMount(){
+    getTasks().then((tasks)=>this.setState({tasks}));
+  }
+
+  addTask = (taskData) => {
+    addTask(taskData).then((taskData)=>
+  this.setState({
+    tasks: [...this.state.tasks, taskData]
+  }))
+  }
+
+removeTask = (id) =>{
+  removeTask(id).then(()=>this.setState({
+    tasks: this.state.tasks.filter(item => item.id !== id)
+  }))
+}
+
   render(){
     return(
       <div className="toDoListWrapper">
-        <AddTaskForm title="Add task" onSubmit={this.addtask}/>
+        <AddTaskForm title="Add task" onSubmit={this.addTask}/>
         <FilterForm title="Filter"/>
-        <TaskTable tasks={Tasks}/>
+        <TaskTable tasks={this.state.tasks} removeTask={this.removeTask}/>
       </div>
     );
   }
