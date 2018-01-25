@@ -15,7 +15,7 @@ class ToDoListWrapper extends Component{
   render(){
     return(
       <div className="toDoListWrapper">
-        <AddTaskForm title="Add task"/>
+        <AddTaskForm title="Add task" onSubmit={this.addtask}/>
         <FilterForm title="Filter"/>
         <TaskTable tasks={Tasks}/>
       </div>
@@ -23,4 +23,4 @@ class ToDoListWrapper extends Component{
   }
 }
 
-exports default ToDoListWrapper;
+export default ToDoListWrapper;
