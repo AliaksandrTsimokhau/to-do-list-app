@@ -1,37 +1,18 @@
-import React, {Component} from 'react';
-import './AddTaskForm.css';
-import SearchInput from './SearchInput/SearchInput.js';
-import PrioritySelect from './PrioritySelect.js';
-import DateSelect from '../DateSelect/DateSelect.js';
+import React, { Component } from 'react';
+import './DateSelect.css';
 import PropTypes from 'prop-types';
 
-export class AddTaskForm extends Component {
-  onSubmit(ev){
-    ev.preventDefault();
-    let formData = [...ev.target.querySelectorAll('[name]')]
-    .reduce((hash,item) =>({
-      ...hash,
-      [item.getAttribute('name')]: item.value
-    }),{}); //что значат пустые фигурные скобки?
-    this.props.onSubmit(formData);
-    ev.target.reset();
-  }
 
-  render(){
-    return(
-      <form className="toDoListForm" onSubmit={this.onSubmit.bind(this)}>
-        <fieldset>
-          <legend>{this.props.title}</legend>
-          <SearchInput name="title" title="Title"/>
-          <PrioritySelect name="priority" />
-          <DateSelect name="date" title="Date" />
-          <textarea name="descript" placeholder="Description" />
-          <input type="submit" class="submit" value="Add"></input>
-        </fieldset>
-      </form>
+class DateSelect extends Component {
+  render() {
+    let date = new Date();
+    return (
+      <input type="date" name={this.props.name} value="2018-01-18" />
     )
   }
 }
-AddTaskForm.propTypes = {
-  title: PropTypes.string
+DateSelect.propTypes = {
+  title: PropTypes.string,
+  name: PropTypes.string
 };
+export default DateSelect;
