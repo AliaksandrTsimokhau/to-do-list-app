@@ -5,11 +5,14 @@ import FilterForm from '../FilterForm/FilterForm';
 import TaskTable from '../TaskTable/TaskTable';
 import PropTypes from 'prop-types';
 
-import {getTasks, addTask, removeTask} from '../utils/apiWrapper';
+import {getTasks, addTask, removeTask, updateTask} from '../utils/apiWrapper';
 
 class ToDoListWrapper extends Component{
   state = {
-    tasks:[]
+    tasks:[],
+    filter: {
+      showCompleted: true
+    }
   }
 
   componentWillMount(){
@@ -24,17 +27,47 @@ class ToDoListWrapper extends Component{
   }
 
 removeTask = (id) =>{
-  removeTask(id).then(()=>this.setState({
+  let tasks = this.state.tasks;
+  this.setState({
     tasks: this.state.tasks.filter(item => item.id !== id)
+  });
+  removeTask(id).catch(()=>this.setState({
+    tasks
   }))
 }
 
-  render(){
+updateTask = (id, changes) => {
+    updateTask(id, changes).then((udatedItem) => this.setState({
+      tasks: this.state.tasks.map(item => item.id !== id ? item : {
+        ...item,
+        ...udatedItem
+      })
+    }))
+  }
+
+onFilterUpdate = (changes) => {
+    this.setState({
+      filter: {
+        ...this.state.filter,
+        ...changes
+      }
+    });
+  }
+
+render(){
+    const {
+      tasks,
+      filter,
+      filter: { showCompleted }
+    } = this.state;
+
+    const filteredTasks = showCompleted ? tasks : tasks.filter((item) => !item.complited);
+
     return(
       <div className="toDoListWrapper">
         <AddTaskForm title="Add task" onSubmit={this.addTask}/>
-        <FilterForm title="Filter"/>
-        <TaskTable tasks={this.state.tasks} removeTask={this.removeTask}/>
+        <FilterForm filter={filter} onFilterUpdate={this.onFilterUpdate} title="Filter" />
+        <TaskTable tasks={filteredTasks} removeTask={this.removeTask} updateTask={this.updateTask} />
       </div>
     );
   }
