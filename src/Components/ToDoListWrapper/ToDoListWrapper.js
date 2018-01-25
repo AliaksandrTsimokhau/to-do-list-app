@@ -5,7 +5,7 @@ import FilterForm from '../FilterForm/FilterForm';
 import TaskTable from '../TaskTable/TaskTable';
 import PropTypes from 'prop-types';
 
-import {getTasks, addTask, removeTask, updateTask} from '../utils/apiWrapper';
+import {getTasks, addTask, removeTask, updateTask} from '../../utils/apiWrapper';
 
 class ToDoListWrapper extends Component{
   state = {
