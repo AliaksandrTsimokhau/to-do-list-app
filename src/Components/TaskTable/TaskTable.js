@@ -43,4 +43,4 @@ TaskTable.PropTypes = {
   updateTask: PropTypes.func
 };
 
-export default Tasktable;
+export default TaskTable;

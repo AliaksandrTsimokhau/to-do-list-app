@@ -1,0 +1,11 @@
+label{
+    margin:3px;
+  }
+textarea{
+    display:block;
+    width: 100%;
+    margin: 10px 0px;
+  }
+.submit{
+    float: right;
+  }

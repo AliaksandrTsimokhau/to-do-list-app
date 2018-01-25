@@ -25,7 +25,7 @@ onSubmit(ev){
           <PrioritySelect name="priority"/>
           <DateSelect name="date" title="Date"/>
           <textarea name="descript" placeholder="Description"/>
-          <input type="submit" class="submit" value="Add"></input>
+          <input type="submit" className="submit" value="Add"></input>
         </fieldset>
       </form>
     )
