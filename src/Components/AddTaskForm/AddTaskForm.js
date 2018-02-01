@@ -4,6 +4,7 @@ import SearchInput from '../SearchInput/SearchInput.js';
 import PrioritySelect from './PrioritySelect.js'
 import DateSelect from '../DateSelect/DateSelect.js';
 import PropTypes from 'prop-types';
+import { Form, TextArea } from 'semantic-ui-react';
 
 export class AddTaskForm extends Component {
 onSubmit(ev){
@@ -23,8 +24,10 @@ onSubmit(ev){
           <legend>{this.props.title}</legend>
           <SearchInput name="title" title="Title"/>
           <PrioritySelect name="priority"/>
-          <DateSelect name="date" title="Date"/>
-          <textarea name="descript" placeholder="Description"/>
+          <DateSelect name="date" title="Date" value="Date"/>
+          
+          <TextArea name="descript" autoHeight placeholder='Description' style={{ minHeight: 100 }} />
+
           <input type="submit" className="submit" value="Add"></input>
         </fieldset>
       </form>
