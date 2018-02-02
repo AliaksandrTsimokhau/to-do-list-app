@@ -7,7 +7,7 @@ class SearchInput extends Component {
     render() {
       return (
 
-    <Input loading icon='user' className={this.props.className} name={this.props.name} type="text" placeholder='SearchInput'></Input>
+    <Input icon='search' className={this.props.className} name={this.props.name} type="text" placeholder='SearchInput'></Input>
       )
     }
   }

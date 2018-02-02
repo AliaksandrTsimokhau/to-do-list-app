@@ -1,18 +1,39 @@
 import React, { Component } from 'react';
 import './AddTaskForm.css';
 import PropTypes from 'prop-types';
+import { Select } from 'semantic-ui-react';
 
 class PrioritySelect extends Component {
+  state = {
+      selectedOption: '',
+    }
+
+      handleChange = (selectedOption) => {
+        this.setState({ selectedOption });
+        console.log(`Selected: ${selectedOption.label}`);
+      }
+
   render() {
+        const { selectedOption } = this.state;
+      	const value = selectedOption && selectedOption.value;
+
     return (
-      <select required name={this.props.name} defaultValue={"2"}>
-        <option value="1">Low</option>
-        <option value="2">Normal</option>
-        <option value="3">High</option>
-      </select>
+      <Select
+        name={this.props.name}
+        onChange={this.handleChange}
+        defualtvalue='High'
+        options={[
+          { value: 'Normal', label: 'Normal' },
+          { value: 'High', label: 'High' },
+        ]} >
+      </Select>
     )
   }
 }
+
+
+
+
 PrioritySelect.propTypes = {
   name: PropTypes.string
 };

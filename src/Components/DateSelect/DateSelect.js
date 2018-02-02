@@ -13,7 +13,7 @@ class DateSelect extends Component {
 let date = new Date();
 
     return (
-      <input type="date" name={this.props.name} value="2018-01-18" onChange={this.handleChange}/>
+      <Input type="date" name={this.props.name} value="2018-01-18" onChange={this.handleChange}/>
 
 
     )
