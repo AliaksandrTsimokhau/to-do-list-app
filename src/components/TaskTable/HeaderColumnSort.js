@@ -1,23 +1,28 @@
 import React, { Component } from 'react';
-import './TaskTable.css';
+
 import PropTypes from 'prop-types';
+import { Icon, Table } from 'semantic-ui-react'
 
 
 class HeaderColumnSort extends Component {
   drawSortButtons() {
     return (
+
       <div>
+
         <div className="sortUp" onClick={() => this.props.setSort(true)}></div>
         <div className="sortDown" onClick={() => this.props.setSort(false)}></div>
+
       </div>
+
     );
   }
   render() {
     return (
-      <th>
-        <label>{this.props.columnName}</label>
+        <Table.HeaderCell>
+          {this.props.columnName}
         {this.props.setSort && this.drawSortButtons()}
-      </th>
+      </Table.HeaderCell>
     )
   }
 }

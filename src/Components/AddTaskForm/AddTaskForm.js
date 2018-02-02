@@ -24,13 +24,13 @@ onSubmit(ev){
       <form className="toDoListForm" onSubmit={this.onSubmit.bind(this)}>
         <fieldset>
           <legend>{this.props.title}</legend>
-          <Input name="title" title="Title"/>
+          <Input name="title" title="Title"  placeholder='Title'/>
           <PrioritySelect name="priority"/>
           <DateSelect name="date" title="Date" value="Date"/>
           <Form>
             <TextArea name="descript" autoHeight placeholder='Description' style={{ minHeight: 100 }} />
           </Form>
-          <input type="submit" className="submit" value="Add"></input>
+          <Input type="submit" className="submit" value="Add"></Input>
         </fieldset>
       </form>
     )

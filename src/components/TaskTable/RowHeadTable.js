@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './TaskTable.css';
+import { Table } from 'semantic-ui-react'
 import HeaderColumnSort from './HeaderColumnSort';
 import PropTypes from 'prop-types';
 
@@ -9,14 +9,16 @@ class RowHeadTable extends Component {
      const orderBy = (name) => (order) => this.props.setOrder(`${order ? '' : '-'}${name}`);
 
     return(
-      <tr>
+      <Table.Header>
+        <Table.Row>
         <HeaderColumnSort setSort={orderBy('id')} columnName="Id" />
         <HeaderColumnSort setSort={orderBy('complited')} columnName="Done" />
         <HeaderColumnSort setSort={orderBy('title')} columnName="Title" />
         <HeaderColumnSort columnname="Priority" />
         <HeaderColumnSort columnName="Date"/>
         <HeaderColumnSort columnName="Remove"/>
-      </tr>
+      </Table.Row>
+    </Table.Header>
     )
   }
 }
