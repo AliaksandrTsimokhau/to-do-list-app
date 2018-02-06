@@ -18,14 +18,16 @@ class PrioritySelect extends Component {
       	const value = selectedOption && selectedOption.value;
 
     return (
-      <Select
+      <Select placeholder = "select priority"
         name={this.props.name}
         onChange={this.handleChange}
         defualtvalue='High'
         options={[
-          { value: 'Normal', label: 'Normal' },
-          { value: 'High', label: 'High' },
-        ]} >
+         {key:"Normal", value: 'Normal', text: 'Normal' },
+         {key:"Low", value: 'Low', text: 'Low' },
+         {key:"High", value: 'High', text: 'High' },
+       ]}>
+
       </Select>
     )
   }
