@@ -4,8 +4,19 @@ label{
 textarea{
     display:block;
     width: 100%;
-    margin: 10px 0px;
+    margin: 10px 10px;
+    padding: 10px;
   }
 .submit{
     float: right;
+    padding-top: 5px;
   }
+
+fieldset{
+  border-radius: 5px;
+}
+
+.input{
+  margin: 0px;
+  padding: 5px;
+}

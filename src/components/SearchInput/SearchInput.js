@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
+import { Input } from 'semantic-ui-react';
+
 class SearchInput extends Component {
     render() {
       return (
-        <input className={this.props.className} name={this.props.name} type="text" placeholder={this.props.title}></input>
+
+    <Input icon='search' className={this.props.className} name={this.props.name} type="text" placeholder='SearchInput'></Input>
       )
     }
   }

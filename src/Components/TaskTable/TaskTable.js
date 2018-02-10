@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './TaskTable.css';
+
 import TaskRow from './TaskRow.js';
 import RowHeadTable from './RowHeadTable.js';
 import PropTypes from 'prop-types';
 
 import sortBy from '../../utils/sortBy';
-
+import { Table } from 'semantic-ui-react';
 class TaskTable extends Component {
 
   state = {
@@ -23,13 +23,13 @@ class TaskTable extends Component {
     return(
           <div>
                 Ordered by {this.state.order}
-                <table className="taskTable">
+                <Table celled className="taskTable">
                     <RowHeadTable setOrder={(order) => this.setState({ order })} />
-                    <tbody>
+                    <Table.Body>
                         {sortedTasks.map((task) =>
                             <TaskRow key={task.id} task={task} removeTask={removeTask} updateTask={updateTask} />)}
-                    </tbody>
-                </table>
+                    </Table.Body>
+                </Table>
             </div>
     )
   }

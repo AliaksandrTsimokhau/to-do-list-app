@@ -5,8 +5,16 @@
   "dependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+<<<<<<< HEAD
     "react-scripts": "1.1.0",
     "redux": "^3.7.2",
+=======
+    "react-redux": "^5.0.6",
+    "react-scripts": "1.1.0",
+    "redux": "^3.7.2",
+    "semantic-ui-calendar": "0.0.8",
+    "semantic-ui-css": "^2.2.14",
+>>>>>>> d1c7656c808d40bf2598eeedbf9357057770e589
     "semantic-ui-react": "^0.77.2"
   },
   "scripts": {
@@ -14,5 +22,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "redux-devtools": "^3.4.1"
   }
 }
